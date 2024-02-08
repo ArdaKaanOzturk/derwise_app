@@ -55,6 +55,21 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Messages",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: DerwiseTheme.backgroundApp,
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back), // arrow back
+          color: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       backgroundColor: DerwiseTheme.backgroundApp,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -66,39 +81,7 @@ class _ChatPageState extends State<ChatPage> {
                 padding: EdgeInsets.only(left: 16, right: 16, top: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      "Chats",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      padding:
-                          EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
-                      height: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: DerwiseTheme.bottomBarSecondary,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.add,
-                            color: Colors.red,
-                            size: 20,
-                          ),
-                          SizedBox(
-                            width: 2,
-                          ),
-                          Text(
-                            "New",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
+                  children: <Widget>[],
                 ),
               ),
             ),
@@ -115,11 +98,13 @@ class _ChatPageState extends State<ChatPage> {
                     size: 20,
                   ),
                   filled: true,
-                  fillColor: const Color.fromARGB(255, 0, 187, 255),
+                  fillColor: Color.fromARGB(255, 140, 141, 141),
                   contentPadding: EdgeInsets.all(8),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: DerwiseTheme.colorBlue)),
+                      borderSide: BorderSide(
+                        color: Color.fromARGB(255, 140, 141, 141),
+                      )),
                 ),
               ),
             ),

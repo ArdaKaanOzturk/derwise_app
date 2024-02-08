@@ -1,8 +1,14 @@
 import 'package:derwise_app/theme.dart';
-import 'package:derwise_app/util/images_path.dart';
 import 'package:flutter/material.dart';
 
-class NotificationsPage extends StatelessWidget {
+class CommunityScreen extends StatefulWidget {
+  const CommunityScreen({super.key});
+
+  @override
+  State<CommunityScreen> createState() => _CommunitiyScreenState();
+}
+
+class _CommunitiyScreenState extends State<CommunityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +16,7 @@ class NotificationsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: DerwiseTheme.backgroundApp,
         title: Text(
-          'Notification',
+          'Communities',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -23,25 +29,11 @@ class NotificationsPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            color: Colors.white, //
-
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              "assets/images/notification.png",
-              width: 370,
-              height: 370,
-              fit: BoxFit.cover,
-            ),
             SizedBox(height: 16),
             Text(
               'Very Soon',

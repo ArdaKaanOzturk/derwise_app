@@ -43,6 +43,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^2.25.3
   firebase_auth: ^4.17.3
+  table_calendar: ^3.0.9
   
 
 dev_dependencies:

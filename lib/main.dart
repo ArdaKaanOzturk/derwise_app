@@ -1,3 +1,4 @@
+import 'package:derwise_app/calendar.dart';
 import 'package:derwise_app/pages/Chat_Screen/modules/chat_page.dart';
 import 'package:derwise_app/pages/home_page.dart';
 import 'package:derwise_app/pages/login_page.dart';
@@ -10,6 +11,7 @@ import 'package:derwise_app/pages/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
