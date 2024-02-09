@@ -2,14 +2,14 @@ import 'package:derwise_app/theme.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter/material.dart';
 
-class CalendarScreen extends StatefulWidget {
-  const CalendarScreen({super.key});
+class CalendarPage extends StatefulWidget {
+  const CalendarPage({super.key});
 
   @override
-  State<CalendarScreen> createState() => _CalendarScreenState();
+  State<CalendarPage> createState() => _CalendarPageState();
 }
 
-class _CalendarScreenState extends State<CalendarScreen> {
+class _CalendarPageState extends State<CalendarPage> {
   DateTime today = DateTime.now();
   void _onDaySelected(DateTime day, DateTime focusedDay) {
     setState(() {
@@ -24,13 +24,15 @@ class _CalendarScreenState extends State<CalendarScreen> {
     return Scaffold(
       backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
-        title: Text("My Education Dates"),
+        title: Text("My Session Dates"),
         backgroundColor: DerwiseTheme.backgroundApp,
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back), // arrow back
           color: Colors.white,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Container(

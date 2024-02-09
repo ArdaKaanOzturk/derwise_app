@@ -2,11 +2,14 @@ import 'package:derwise_app/MenuScreens/derwisescape.dart';
 import 'package:derwise_app/MenuScreens/derwisesocial.dart';
 import 'package:derwise_app/MenuScreens/events.dart';
 import 'package:derwise_app/pages/bottom_navigation.dart';
+import 'package:derwise_app/pages/meetings.dart';
 import 'package:derwise_app/pages/notification.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'calendar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -123,35 +126,51 @@ class _HomePageState extends State<HomePage> {
                             const Text('Standings')
                           ],
                         ),
-                        Column(
-                          children: [
-                            Container(
-                                width: 60,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: DerwiseTheme.waterBlue,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                padding: const EdgeInsets.all(12),
-                                child: const Icon(Icons.calendar_month_sharp)),
-                            const SizedBox(height: 8),
-                            const Text('Calendar'),
-                          ],
+                        GestureDetector(
+                           onTap: () {
+                            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CalendarPage()),
+            );
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                  width: 60,
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    color: DerwiseTheme.waterBlue,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  padding: const EdgeInsets.all(12),
+                                  child: const Icon(Icons.calendar_month_sharp)),
+                              const SizedBox(height: 8),
+                              const Text('Calendar'),
+                            ],
+                          ),
                         ),
-                        Column(
-                          children: [
-                            Container(
-                                width: 60,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: DerwiseTheme.waterBlue,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                padding: const EdgeInsets.all(12),
-                                child: const Icon(Icons.videocam)),
-                            const SizedBox(height: 8),
-                            const Text('Meetings')
-                          ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MeetingsPage()),
+            );
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                  width: 60,
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    color: DerwiseTheme.waterBlue,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  padding: const EdgeInsets.all(12),
+                                  child: const Icon(Icons.videocam)),
+                              const SizedBox(height: 8),
+                              const Text('Meetings')
+                            ],
+                          ),
                         ),
                       ],
                     ),
