@@ -17,12 +17,10 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-void main() async{
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp().then((value)
-  {
+  await Firebase.initializeApp().then((value) {
     Get.put(AuthenticationController());
   });
 
