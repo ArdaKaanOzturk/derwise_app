@@ -24,7 +24,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               activeColor: Colors.white,
               tabBackgroundColor: DerwiseTheme.waterBlue,
               gap: 8,
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               tabs: [
                 GButton(
                   onPressed: () {
@@ -36,7 +36,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                   icon: Icons.home_filled,
                   text: 'Home',
                 ),
-                GButton(
+                const GButton(
                   icon: Icons.search_rounded,
                   text: ' Search',
                 ),
@@ -50,7 +50,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                   icon: Icons.chat_bubble,
                   text: ' Messages',
                 ),
-                GButton(
+                const GButton(
                   icon: Icons.person_2, 
                   text: 'Profile'
                   ),

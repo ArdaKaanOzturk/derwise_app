@@ -12,7 +12,7 @@ class _MeetingsPageState extends State<MeetingsPage> with SingleTickerProviderSt
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this); // 3 sekme için bir TabController oluşturuluyor
+    _tabController = TabController(length: 2, vsync: this); // TabController for 3 tabs
   }
 
   @override
@@ -21,12 +21,12 @@ class _MeetingsPageState extends State<MeetingsPage> with SingleTickerProviderSt
       backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
         backgroundColor: DerwiseTheme.backgroundApp,
-        title: Text('Meetings'),
+        title: const Text('Meetings'),
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: DerwiseTheme.colorBlue,
           labelColor: DerwiseTheme.colorBlue, // selected label color
-          tabs: [
+          tabs: const [
             Tab(text: 'History'),
             Tab(text: 'Connections')
           ],
@@ -34,8 +34,8 @@ class _MeetingsPageState extends State<MeetingsPage> with SingleTickerProviderSt
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          // Sekme içerikleri buraya gelecek
+        children: const [
+          // Tab contents
           Center(child: Text('History Content')),
           Center(child: Text('Connections Content'))
         ],

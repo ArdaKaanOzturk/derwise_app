@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "160156139020",
+    "project_id": "derwise-2ba99",
+    "storage_bucket": "derwise-2ba99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160156139020:android:60f39dae283847b1453829",
+        "android_client_info": {
+          "package_name": "com.example.derwise_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_GtjQC8Nl0EHU_YKMyXsxz4mm8dwaHWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

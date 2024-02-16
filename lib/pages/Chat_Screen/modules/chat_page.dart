@@ -3,6 +3,7 @@ import 'package:derwise_app/pages/Chat_Screen/models/chat_users.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ChatPage extends StatefulWidget {
   @override
@@ -56,27 +57,27 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Messages",
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
         backgroundColor: DerwiseTheme.backgroundApp,
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back), // arrow back
+          icon: const Icon(Icons.arrow_back), // arrow back
           color: Colors.white,
           onPressed: () {
-            Navigator.pop(context);
+            Get.back();
           },
         ),
       ),
       backgroundColor: DerwiseTheme.backgroundApp,
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SafeArea(
+            const SafeArea(
               child: Padding(
                 padding: EdgeInsets.only(left: 16, right: 16, top: 10),
                 child: Row(
@@ -86,23 +87,23 @@ class _ChatPageState extends State<ChatPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+              padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Search...",
-                  hintStyle: TextStyle(
-                      color: const Color.fromARGB(255, 255, 255, 255)),
-                  prefixIcon: Icon(
+                  hintStyle: const TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255)),
+                  prefixIcon: const Icon(
                     Icons.search,
                     color: Colors.white,
                     size: 20,
                   ),
                   filled: true,
-                  fillColor: Color.fromARGB(255, 140, 141, 141),
-                  contentPadding: EdgeInsets.all(8),
+                  fillColor: const Color.fromARGB(255, 140, 141, 141),
+                  contentPadding: const EdgeInsets.all(8),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Color.fromARGB(255, 140, 141, 141),
                       )),
                 ),

@@ -1,6 +1,6 @@
-import 'package:derwise_app/MenuScreens/derwisescape.dart';
-import 'package:derwise_app/MenuScreens/derwisesocial.dart';
-import 'package:derwise_app/MenuScreens/events.dart';
+import 'package:derwise_app/pages/MenuScreens/derwisescape.dart';
+import 'package:derwise_app/pages/MenuScreens/derwisesocial.dart';
+import 'package:derwise_app/pages/MenuScreens/events.dart';
 import 'package:derwise_app/pages/bottom_navigation.dart';
 import 'package:derwise_app/pages/meetings.dart';
 import 'package:derwise_app/pages/notification.dart';
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         title: Padding(
           padding: const EdgeInsets.only(left: 70, top: 12),
-          child: Image.asset(ImageConstant.logoImage),
+          child: Image.asset(ImageConstant.logoAppBarImage),
         ),
         actions: const [NotificationIcon()],
       ),
@@ -45,36 +45,36 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.event),
-                title: Text(
+                leading: const Icon(Icons.event),
+                title: const Text(
                   'Communities',
                   style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => CommunityScreen()));
+                      builder: (context) => const CommunityScreen()));
                 },
               ),
               ListTile(
-                leading: Icon(Icons.people_outlined),
-                title: Text(
+                leading: const Icon(Icons.people_outlined),
+                title: const Text(
                   'derwise Social',
                   style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => derwiseSocialScreen()));
+                      builder: (context) => const derwiseSocialScreen()));
                 },
               ),
               ListTile(
-                leading: Icon(Icons.record_voice_over),
-                title: Text(
+                leading: const Icon(Icons.record_voice_over),
+                title: const Text(
                   'derwise Scape',
                   style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => ScapeScreen()));
+                      MaterialPageRoute(builder: (context) => const ScapeScreen()));
                 },
               ),
             ],

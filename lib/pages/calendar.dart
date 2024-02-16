@@ -1,4 +1,5 @@
 import 'package:derwise_app/theme.dart';
+import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter/material.dart';
 
@@ -24,30 +25,29 @@ class _CalendarPageState extends State<CalendarPage> {
     return Scaffold(
       backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
-        title: Text("My Session Dates"),
+        title: const Text("My Session Dates"),
         backgroundColor: DerwiseTheme.backgroundApp,
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back), // arrow back
+          icon: const Icon(Icons.arrow_back), // arrow back
           color: Colors.white,
           onPressed: () {
-            Navigator.pop(context);
+            Get.back();
           },
         ),
       ),
-      body: Container(
-        child: TableCalendar(
-            locale: 'en_us',
-            rowHeight: 35,
-            headerStyle:
-                HeaderStyle(formatButtonVisible: false, titleCentered: true),
-            focusedDay: today,
-            onDaySelected: _onDaySelected,
-            availableGestures: AvailableGestures.all,
-            selectedDayPredicate: (day) => isSameDay(day, today),
-            firstDay: DateTime.utc(2000, 01, 01),
-            lastDay: DateTime.utc(2030, 01, 01)),
-      ),
+      body: 
+      TableCalendar(
+          locale: 'en_us',
+          rowHeight: 35,
+          headerStyle:
+              HeaderStyle(formatButtonVisible: false, titleCentered: true),
+          focusedDay: today,
+          onDaySelected: _onDaySelected,
+          availableGestures: AvailableGestures.all,
+          selectedDayPredicate: (day) => isSameDay(day, today),
+          firstDay: DateTime.utc(2000, 01, 01),
+          lastDay: DateTime.utc(2030, 01, 01)),
     );
   }
 }

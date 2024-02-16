@@ -1,6 +1,7 @@
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class NotificationsPage extends StatelessWidget {
   @override
@@ -9,7 +10,7 @@ class NotificationsPage extends StatelessWidget {
       backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
         backgroundColor: DerwiseTheme.backgroundApp,
-        title: Text(
+        title: const Text(
           'Notification',
           style: TextStyle(
             color: Colors.white,
@@ -17,15 +18,15 @@ class NotificationsPage extends StatelessWidget {
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back), // arrow back
+          icon: const Icon(Icons.arrow_back), // arrow back
           color: Colors.white,
           onPressed: () {
-            Navigator.pop(context);
+            Get.back();
           },
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             color: Colors.white, //
 
             onPressed: () {},
@@ -42,8 +43,8 @@ class NotificationsPage extends StatelessWidget {
               height: 370,
               fit: BoxFit.cover,
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Very Soon',
               style: TextStyle(
                   fontSize: 25,

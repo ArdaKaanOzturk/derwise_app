@@ -2,7 +2,13 @@ class ImageConstant{
   // Image folder path
   static const String imagePath = 'assets/images';
 
-  // Onboarding images
+  // sign up page
+  static String emptyProfileImage = '$imagePath/empty_profile_image.jpg';
+
+  // appBar images
+  static String logoAppBarImage = '$imagePath/derwise-logo-appbar.png';
+
+  // onboarding images
   static String logoImage = '$imagePath/derwise-logo.png';
 
   // Notification Page
