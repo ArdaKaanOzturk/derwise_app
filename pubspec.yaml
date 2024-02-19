@@ -49,6 +49,14 @@ dependencies:
   firebase_messaging:
   table_calendar:
   
+  flutter_localizations: 
+    sdk: flutter
+  cached_network_image: ^3.3.0
+  flutter_svg: ^2.0.9
+  connectivity_plus: ^5.0.2
+  shared_preferences: ^2.2.2
+  intl: ^0.18.0
+  
 
 dev_dependencies:
   flutter_test:

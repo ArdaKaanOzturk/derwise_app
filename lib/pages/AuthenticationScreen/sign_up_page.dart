@@ -6,7 +6,6 @@ import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:derwise_app/widget/custom_button.dart';
 import 'package:derwise_app/widget/custom_text_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -199,8 +198,26 @@ class _SignupScreenState extends State<SignupScreen> {
                         children: [ 
                           CustomButton(
                             text: 'Sign up',
-                            onPressed: () {
-                              setState(() {});
+                            onPressed: () async{
+                              if(authenticationController.profileImage != null){
+                                if(_nameController.text.trim().isNotEmpty 
+                                && _emailController.text.trim().isNotEmpty 
+                                && _passwordController.text.trim().isNotEmpty 
+                                && _userNameController.text.trim().isNotEmpty) 
+                                {
+                                  await authenticationController.createNewUserAccount(
+                                    authenticationController.profileImage!,
+                                    _nameController.text.trim(),
+                                    _userNameController.text.trim(),
+                                    _emailController.text.trim(),
+                                    _passwordController.text.trim(),
+                                  );
+                                }else{
+                                  Get.snackbar("A Field is Empty", "Pleae fill out all field in the text fields");
+                                }
+                              }else{
+                                Get.snackbar("Image File is Missing", "Pleae pick image from Gallery or capture with Camera");
+                              }
                             }),
                              SizedBox(height: 10),
                       Align(
