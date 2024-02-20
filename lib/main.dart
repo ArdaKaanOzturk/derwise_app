@@ -28,19 +28,22 @@ WidgetsFlutterBinding.ensureInitialized();
 */
 Future main() async{
   
-  /* WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   if(kIsWeb){
-    await Firebase.initializeApp(options: const FirebaseOptions(apiKey: "AIzaSyA8qr4SvcNoXoMWdbeT0j9F-s-K9axwN14", appId: "1:1018973886779:web:823ec17c2c2206b9ddff1e", messagingSenderId: "1018973886779", projectId: "derwise-5234"));
+    await Firebase.initializeApp(options: const FirebaseOptions(apiKey: "AIzaSyA8qr4SvcNoXoMWdbeT0j9F-s-K9axwN14", appId: "1:1018973886779:web:823ec17c2c2206b9ddff1e", messagingSenderId: "1018973886779", projectId: "derwise-5234")
+    );
+  }else{
+    await Firebase.initializeApp();
   }
 
-  await Firebase.initializeApp(); */
+  runApp(const MyApp());
 
   SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(const MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {
