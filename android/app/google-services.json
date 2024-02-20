@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1084471869645",
+    "project_id": "derw-bfced",
+    "storage_bucket": "derw-bfced.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084471869645:android:cd01b534cb0c7456f7a984",
+        "android_client_info": {
+          "package_name": "com.example.derwise"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoa7V6meuoE-1nt8vKBKY15LuWliePopo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

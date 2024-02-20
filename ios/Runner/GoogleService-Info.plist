@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyAA8dT-_LOKuYOaDerBaaG9bc8s_QqZAJI</string>
+	<string>AIzaSyC1uULlcHDDS7EDjvwyX6RofocRWWpVHtA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1018973886779</string>
+	<string>1084471869645</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.derwiseApp</string>
+	<string>com.example.derwise</string>
 	<key>PROJECT_ID</key>
-	<string>derwise-5234</string>
+	<string>derw-bfced</string>
 	<key>STORAGE_BUCKET</key>
-	<string>derwise-5234.appspot.com</string>
+	<string>derw-bfced.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1018973886779:ios:6f983de79ecaedd0ddff1e</string>
+	<string>1:1084471869645:ios:f9bd7a52e8a8ddeff7a984</string>
 </dict>
 </plist>
