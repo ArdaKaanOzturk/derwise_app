@@ -27,19 +27,16 @@ WidgetsFlutterBinding.ensureInitialized();
     Get.put(AuthenticationController());
   });
 */
-Future main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (kIsWeb) {
     await Firebase.initializeApp(
         options: const FirebaseOptions(
             apiKey: "AIzaSyDwA-E-AdDzFxNm3rLm-ZHBhaz51bSNjXo",
             appId: "1:1084471869645:web:5b17e2d61db9b00cf7a984",
             messagingSenderId: "1084471869645",
             projectId: "derw-bfced"));
-  } else {
-    await Firebase.initializeApp();
-  }
+   
 
   runApp(const MyApp());
 
