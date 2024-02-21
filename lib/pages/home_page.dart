@@ -73,8 +73,8 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const ScapeScreen()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ScapeScreen()));
                 },
               ),
             ],
@@ -127,11 +127,12 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         GestureDetector(
-                           onTap: () {
+                          onTap: () {
                             Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CalendarPage()),
-            );
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const CalendarPage()),
+                            );
                           },
                           child: Column(
                             children: [
@@ -143,7 +144,8 @@ class _HomePageState extends State<HomePage> {
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   padding: const EdgeInsets.all(12),
-                                  child: const Icon(Icons.calendar_month_sharp)),
+                                  child:
+                                      const Icon(Icons.calendar_month_sharp)),
                               const SizedBox(height: 8),
                               const Text('Calendar'),
                             ],
@@ -152,9 +154,10 @@ class _HomePageState extends State<HomePage> {
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MeetingsPage()),
-            );
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MeetingsPage()),
+                            );
                           },
                           child: Column(
                             children: [

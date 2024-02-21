@@ -35,9 +35,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
+        backgroundColor: DerwiseTheme.backgroundApp,
         automaticallyImplyLeading: false,
-        title: Text("Login"),
       ),
       body: Center(
         child: Padding(
@@ -105,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   height: 45,
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 0, 90, 224),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(

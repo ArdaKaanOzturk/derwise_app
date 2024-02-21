@@ -42,9 +42,10 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
+        backgroundColor: DerwiseTheme.backgroundApp,
         automaticallyImplyLeading: false,
-        title: Text("SignUp"),
       ),
       body: Center(
         child: Padding(

@@ -29,6 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Text(
           "Derwise",
           style: TextStyle(
+            fontSize: 30,
             color: DerwiseTheme.bottomBarSecondary,
             fontWeight: FontWeight.bold,
           ),
