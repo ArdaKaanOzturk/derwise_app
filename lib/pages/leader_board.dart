@@ -19,7 +19,10 @@ class LeaderboardScreen extends StatelessWidget {
     User('User2', 150),
     User('User3', 120),
     User('User4', 80),
-    User('User5', 200),
+    User(
+      'User5',
+      200,
+    )
   ];
 
   @override
@@ -28,20 +31,26 @@ class LeaderboardScreen extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: DerwiseTheme.backgroundApp,
         appBar: AppBar(
-          title: Text('Leaderboard'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          backgroundColor: DerwiseTheme.backgroundApp,
+          title: Text(
+            'Standings',
+            style: TextStyle(color: Colors.white, fontSize: 24),
+          ),
           centerTitle: true,
-          backgroundColor: Colors.blue,
         ),
         body: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'Liderlik Tablosu',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
               SizedBox(height: 16),
               Card(
                 elevation: 4,

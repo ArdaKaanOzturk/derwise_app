@@ -2,6 +2,7 @@ import 'package:derwise_app/pages/MenuScreens/derwisescape.dart';
 import 'package:derwise_app/pages/MenuScreens/derwisesocial.dart';
 import 'package:derwise_app/pages/MenuScreens/events.dart';
 import 'package:derwise_app/pages/bottom_navigation.dart';
+import 'package:derwise_app/pages/leader_board.dart';
 import 'package:derwise_app/pages/meetings.dart';
 import 'package:derwise_app/pages/notification.dart';
 import 'package:derwise_app/theme.dart';
@@ -114,20 +115,30 @@ class _HomePageState extends State<HomePage> {
                             const Text('Categories')
                           ],
                         ),
-                        Column(
-                          children: [
-                            Container(
-                                width: 60,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: DerwiseTheme.waterBlue,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                padding: const EdgeInsets.all(12),
-                                child: const Icon(Icons.leaderboard_outlined)),
-                            const SizedBox(height: 8),
-                            const Text('Standings')
-                          ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LeaderboardScreen()),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                  width: 60,
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    color: DerwiseTheme.waterBlue,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  padding: const EdgeInsets.all(12),
+                                  child:
+                                      const Icon(Icons.leaderboard_outlined)),
+                              const SizedBox(height: 8),
+                              const Text('Standings'),
+                            ],
+                          ),
                         ),
                         GestureDetector(
                           onTap: () {
