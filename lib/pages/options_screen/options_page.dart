@@ -3,7 +3,7 @@ import 'package:derwise_app/AccountScreen/edit_item.dart';
 import 'package:derwise_app/AccountScreen/setting_item.dart';
 import 'package:derwise_app/AccountScreen/setting_page.dart';
 import 'package:derwise_app/pages/notification.dart';
-import 'package:derwise_app/pages/widgets/update_profile_screens.dart';
+import 'package:derwise_app/pages/options_screen/uptade_profile_screens.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:derwise_app/util/text_strings.dart';
@@ -72,7 +72,7 @@ class _OptionsPagesState extends State<OptionsPages> {
                 child: ElevatedButton(
                   onPressed: () => Get.to(() => const UpdateProfileScreen()),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: DerwiseTheme.bottomBarSecondary,
+                      backgroundColor: DerwiseTheme.lightBlue,
                       side: BorderSide.none,
                       shape: const StadiumBorder()),
                   child: const Text(
@@ -152,8 +152,12 @@ class ProfileMenuWidget extends StatelessWidget {
           ? Container(
               width: 30,
               height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: DerwiseTheme.bottomBarSecondary,
+              ),
               child: const Icon(LineAwesomeIcons.angle_right,
-                  size: 18.0, color: DerwiseTheme.bottomBarSecondary))
+                  size: 18.0, color: Colors.white))
           : null,
     );
   }

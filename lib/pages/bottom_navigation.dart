@@ -1,7 +1,7 @@
 import 'package:derwise_app/pages/Chat_Screen/modules/chat_page.dart';
 import 'package:derwise_app/pages/home_page.dart';
 import 'package:derwise_app/pages/search/components/search.dart';
-import 'package:derwise_app/pages/widgets/options_page.dart';
+import 'package:derwise_app/pages/options_screen/options_page.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

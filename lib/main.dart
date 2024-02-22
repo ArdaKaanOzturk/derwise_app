@@ -4,7 +4,7 @@ import 'package:derwise_app/pages/Chat_Screen/modules/chat_page.dart';
 import 'package:derwise_app/pages/home_page.dart';
 import 'package:derwise_app/pages/AuthenticationScreen/login_page.dart';
 import 'package:derwise_app/pages/splashScreen.dart';
-import 'package:derwise_app/pages/widgets/options_page.dart';
+import 'package:derwise_app/pages/options_screen/options_page.dart';
 import 'package:derwise_app/pages/profile_page.dart';
 import 'package:derwise_app/AccountScreen/setting_page.dart';
 import 'package:derwise_app/pages/AuthenticationScreen/sign_up_page.dart';
