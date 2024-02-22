@@ -72,7 +72,7 @@ class _OptionsPagesState extends State<OptionsPages> {
                 child: ElevatedButton(
                   onPressed: () => Get.to(() => const UpdateProfileScreen()),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: DerwiseTheme.lightBlue,
+                      backgroundColor: DerwiseTheme.bottomBarSecondary,
                       side: BorderSide.none,
                       shape: const StadiumBorder()),
                   child: const Text(
@@ -152,12 +152,8 @@ class ProfileMenuWidget extends StatelessWidget {
           ? Container(
               width: 30,
               height: 30,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: DerwiseTheme.bottomBarSecondary,
-              ),
               child: const Icon(LineAwesomeIcons.angle_right,
-                  size: 18.0, color: Colors.white))
+                  size: 18.0, color: DerwiseTheme.bottomBarSecondary))
           : null,
     );
   }

@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: DerwiseTheme.backgroundApp,
         elevation: 0,
         title: Text(
-          "Derwise",
+          "derwise",
           style: GoogleFonts.pacifico(
               fontSize: 25, color: DerwiseTheme.bottomBarSecondary),
         ),

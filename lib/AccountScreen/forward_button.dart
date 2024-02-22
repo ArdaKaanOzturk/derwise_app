@@ -14,12 +14,7 @@ class ForwardButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 60,
-        height: 60,
-        decoration: BoxDecoration(
-          color: DerwiseTheme.bottomBarSecondary,
-          borderRadius: BorderRadius.circular(15),
-        ),
+        color: DerwiseTheme.backgroundApp,
         child: const Icon(Ionicons.chevron_forward_outline),
       ),
     );

@@ -58,7 +58,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
               ),
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: DerwiseTheme.lightBlue,
+                color: DerwiseTheme.bottomBarSecondary,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [],
               ),

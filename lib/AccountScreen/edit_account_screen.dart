@@ -23,7 +23,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Ionicons.chevron_back_outline),
+          icon: const Icon(Icons.arrow_back),
         ),
         leadingWidth: 80,
         actions: [
@@ -32,7 +32,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
             child: IconButton(
               onPressed: () {},
               style: IconButton.styleFrom(
-                backgroundColor: Colors.lightBlueAccent,
+                backgroundColor: DerwiseTheme.bottomBarSecondary,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
@@ -71,7 +71,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                     TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.lightBlueAccent,
+                        foregroundColor: DerwiseTheme.bottomBarSecondary,
                       ),
                       child: const Text("Upload Image"),
                     )
@@ -79,7 +79,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                 ),
               ),
               const EditItem(
-                title: "Name",
+                title: "Username",
                 widget: TextField(),
               ),
               const SizedBox(height: 40),
@@ -95,7 +95,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                       },
                       style: IconButton.styleFrom(
                         backgroundColor: gender == "man"
-                            ? DerwiseTheme.lightBlue
+                            ? DerwiseTheme.bottomBarSecondary
                             : Colors.grey.shade200,
                         fixedSize: const Size(50, 50),
                       ),

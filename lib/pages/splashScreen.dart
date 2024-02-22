@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: DerwiseTheme.backgroundApp,
       body: Center(
         child: Text(
-          "Derwise",
+          "derwise",
           style: GoogleFonts.pacifico(
               fontSize: 50, color: DerwiseTheme.bottomBarSecondary),
         ),
