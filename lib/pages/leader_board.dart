@@ -35,6 +35,7 @@ class LeaderboardScreen extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
+            color: Colors.white,
             onPressed: () {
               Navigator.pop(context);
             },
