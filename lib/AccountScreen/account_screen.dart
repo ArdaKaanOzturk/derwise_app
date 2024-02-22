@@ -75,7 +75,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          "İstanbul Okan University",
+                          "Istanbul Okan University",
                           style: TextStyle(
                             fontSize: 14,
                             color: Color.fromARGB(255, 255, 255, 255),
