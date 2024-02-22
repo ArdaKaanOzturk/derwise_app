@@ -259,4 +259,5 @@ class NotificationIcon extends StatelessWidget {
     );
   }
 }
+
 //

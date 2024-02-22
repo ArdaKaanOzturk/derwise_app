@@ -21,7 +21,10 @@ class _OptionsPagesState extends State<OptionsPages> {
       backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {}, icon: const Icon(LineAwesomeIcons.angle_left)),
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(LineAwesomeIcons.arrow_left)),
         title: Text(tProfile, style: Theme.of(context).textTheme.headline4),
         backgroundColor: DerwiseTheme.backgroundApp,
       ),
@@ -36,8 +39,7 @@ class _OptionsPagesState extends State<OptionsPages> {
                     height: 120,
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
-                        child:
-                            Image.asset(ImageConstant.userProfileImage)),
+                        child: Image.asset(ImageConstant.userProfileImage)),
                   ),
                   Positioned(
                     bottom: 0,
@@ -86,13 +88,9 @@ class _OptionsPagesState extends State<OptionsPages> {
                 icon: LineAwesomeIcons.cog,
                 onPress: () {},
               ),
+
               ProfileMenuWidget(
-                title: "Billing Details",
-                icon: LineAwesomeIcons.wallet,
-                onPress: () {},
-              ),
-              ProfileMenuWidget(
-                  title: "User Management",
+                  title: "Account Settings",
                   icon: LineAwesomeIcons.user_check,
                   onPress: () => (() => const UpdateProfileScreen())),
               const Divider(),

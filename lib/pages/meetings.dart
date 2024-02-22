@@ -6,13 +6,15 @@ class MeetingsPage extends StatefulWidget {
   _MeetingsPageState createState() => _MeetingsPageState();
 }
 
-class _MeetingsPageState extends State<MeetingsPage> with SingleTickerProviderStateMixin {
+class _MeetingsPageState extends State<MeetingsPage>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this); // TabController for 3 tabs
+    _tabController =
+        TabController(length: 2, vsync: this); // TabController for 3 tabs
   }
 
   @override
@@ -21,15 +23,16 @@ class _MeetingsPageState extends State<MeetingsPage> with SingleTickerProviderSt
       backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
         backgroundColor: DerwiseTheme.backgroundApp,
-        title: const Text('Meetings'),
+        title: const Text(
+          'Meetings',
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: DerwiseTheme.colorBlue,
           labelColor: DerwiseTheme.colorBlue, // selected label color
-          tabs: const [
-            Tab(text: 'History'),
-            Tab(text: 'Connections')
-          ],
+          tabs: const [Tab(text: 'History'), Tab(text: 'Connections')],
         ),
       ),
       body: TabBarView(
