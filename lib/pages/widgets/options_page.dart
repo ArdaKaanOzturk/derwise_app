@@ -1,3 +1,7 @@
+import 'package:derwise_app/AccountScreen/account_screen.dart';
+import 'package:derwise_app/AccountScreen/edit_item.dart';
+import 'package:derwise_app/AccountScreen/setting_item.dart';
+import 'package:derwise_app/AccountScreen/setting_page.dart';
 import 'package:derwise_app/pages/notification.dart';
 import 'package:derwise_app/pages/widgets/uptade_profile_screens.dart';
 import 'package:derwise_app/theme.dart';
@@ -86,15 +90,12 @@ class _OptionsPagesState extends State<OptionsPages> {
               ProfileMenuWidget(
                 title: "Settings",
                 icon: LineAwesomeIcons.cog,
-                onPress: () {},
+                onPress: () {
+                  Get.to(
+                    AccountScreen(),
+                  );
+                },
               ),
-
-              ProfileMenuWidget(
-                  title: "Account Settings",
-                  icon: LineAwesomeIcons.user_check,
-                  onPress: () => (() => const UpdateProfileScreen())),
-              const Divider(),
-              const SizedBox(height: 10),
 
               ProfileMenuWidget(
                   title: "Information",

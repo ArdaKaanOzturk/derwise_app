@@ -6,7 +6,7 @@ import 'package:derwise_app/pages/AuthenticationScreen/login_page.dart';
 import 'package:derwise_app/pages/splashScreen.dart';
 import 'package:derwise_app/pages/widgets/options_page.dart';
 import 'package:derwise_app/pages/profile_page.dart';
-import 'package:derwise_app/pages/setting_page.dart';
+import 'package:derwise_app/AccountScreen/setting_page.dart';
 import 'package:derwise_app/pages/AuthenticationScreen/sign_up_page.dart';
 import 'package:derwise_app/pages/notification.dart';
 import 'package:firebase_core/firebase_core.dart';

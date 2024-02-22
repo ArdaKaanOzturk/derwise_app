@@ -60,6 +60,7 @@ dependencies:
   google_sign_in: ^6.2.1
   fluttertoast: ^8.2.4
   google_fonts: ^6.1.0
+  ionicons: ^0.2.2
 
 
 dev_dependencies:
