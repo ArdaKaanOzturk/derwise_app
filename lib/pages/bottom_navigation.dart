@@ -1,8 +1,10 @@
 import 'package:derwise_app/pages/Chat_Screen/modules/chat_page.dart';
 import 'package:derwise_app/pages/home_page.dart';
 import 'package:derwise_app/pages/search/components/search.dart';
+import 'package:derwise_app/pages/widgets/options_page.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -58,7 +60,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
                 icon: Icons.chat_bubble,
                 text: ' Messages',
               ),
-              const GButton(icon: Icons.person_2, text: 'Profile'),
+              GButton(
+                  onPressed: () {
+                    Get.to(OptionsPages());
+                  },
+                  icon: Icons.person_2,
+                  text: 'Profile'),
             ]),
       ),
     );

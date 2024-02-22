@@ -8,6 +8,7 @@ import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'calendar.dart';
 
@@ -26,10 +27,12 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: DerwiseTheme.backgroundApp,
         elevation: 0,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 70, top: 12),
-          child: Image.asset(ImageConstant.logoAppBarImage),
+        title: Text(
+          "Derwise",
+          style: GoogleFonts.pacifico(
+              fontSize: 25, color: DerwiseTheme.bottomBarSecondary),
         ),
+        centerTitle: true,
         actions: const [NotificationIcon()],
       ),
       drawer: Drawer(

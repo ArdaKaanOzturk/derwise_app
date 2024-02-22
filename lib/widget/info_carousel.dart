@@ -20,7 +20,7 @@ class _InfoCarouselState extends State<InfoCarousel> {
         return Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color:DerwiseTheme.categoryBackground,
+            color: DerwiseTheme.categoryBackground,
           ),
           padding: const EdgeInsets.all(16),
           child: child,

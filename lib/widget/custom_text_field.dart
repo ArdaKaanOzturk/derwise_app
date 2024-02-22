@@ -14,7 +14,7 @@ class CustomTextField extends StatefulWidget {
   final bool isPassword;
 
   const CustomTextField(
-      {super.key, 
+      {super.key,
       required this.hintText,
       required this.keyboardType,
       required this.controller,
@@ -40,7 +40,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       obscureText: obscureText,
-      style: const TextStyle(color: DerwiseTheme.textColorTertiary),
+      style: TextStyle(color: Color.fromARGB(255, 253, 253, 253)),
       decoration: InputDecoration(
         suffixIcon: widget.isPassword
             ? IconButton(
@@ -51,7 +51,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         filled: true,
         fillColor: DerwiseTheme.textColorPrimary,
         hintText: widget.hintText,
-        hintStyle: const TextStyle(color: DerwiseTheme.textColorTertiary),
+        hintStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),

@@ -92,19 +92,20 @@ class _ChatPageState extends State<ChatPage> {
                 decoration: InputDecoration(
                   hintText: "Search...",
                   hintStyle: const TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255)),
+                    color: Color.fromARGB(255, 148, 146, 146),
+                  ),
                   prefixIcon: const Icon(
                     Icons.search,
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 168, 168, 168),
                     size: 20,
                   ),
                   filled: true,
-                  fillColor: const Color.fromARGB(255, 140, 141, 141),
+                  fillColor: Color.fromARGB(255, 255, 252, 252),
                   contentPadding: const EdgeInsets.all(8),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 140, 141, 141),
+                        color: Color.fromARGB(255, 247, 255, 255),
                       )),
                 ),
               ),

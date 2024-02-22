@@ -1,5 +1,6 @@
 import 'package:derwise_app/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
   final Widget? child;
@@ -28,11 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Text(
           "Derwise",
-          style: TextStyle(
-            fontSize: 30,
-            color: DerwiseTheme.bottomBarSecondary,
-            fontWeight: FontWeight.bold,
-          ),
+          style: GoogleFonts.pacifico(
+              fontSize: 50, color: DerwiseTheme.bottomBarSecondary),
         ),
       ),
     );
