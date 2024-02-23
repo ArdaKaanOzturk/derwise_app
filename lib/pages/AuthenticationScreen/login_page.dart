@@ -1,5 +1,5 @@
 import 'package:derwise_app/global/common/toast.dart';
-import 'package:derwise_app/pages/AuthenticationScreen/sign_up_page.dart';
+import 'package:derwise_app/pages/AuthenticationScreen/sign_up_pages/sign_up_page.dart';
 import 'package:derwise_app/pages/AuthenticationScreen/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/widget/custom_button.dart';

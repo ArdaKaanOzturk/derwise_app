@@ -3,7 +3,7 @@ import 'package:derwise_app/AccountScreen/edit_item.dart';
 import 'package:derwise_app/AccountScreen/setting_item.dart';
 import 'package:derwise_app/AccountScreen/setting_page.dart';
 import 'package:derwise_app/pages/notification.dart';
-import 'package:derwise_app/pages/options_screen/uptade_profile_screens.dart';
+import 'package:derwise_app/pages/options_screen/update_profile_screens.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:derwise_app/util/text_strings.dart';

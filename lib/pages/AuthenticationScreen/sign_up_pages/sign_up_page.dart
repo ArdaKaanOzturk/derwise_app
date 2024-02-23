@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:derwise_app/global/common/toast.dart';
+import 'package:derwise_app/pages/AuthenticationScreen/sign_up_pages/extra_info.dart';
 import 'package:derwise_app/pages/AuthenticationScreen/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:derwise_app/pages/home_page.dart';
 import 'package:derwise_app/pages/AuthenticationScreen/login_page.dart';
@@ -13,7 +14,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controllers/authentication_controller.dart';
+import '../../../controllers/authentication_controller.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -156,7 +157,7 @@ class _SignUpPageState extends State<SignUpPage> {
     });
     if (user != null) {
       showToast(message: "User is successfully created");
-      Navigator.pushNamed(context, "/home");
+      Get.to(ExtraInfo());
     } else {
       showToast(message: "Some error happend");
     }
