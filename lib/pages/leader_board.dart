@@ -6,20 +6,20 @@ void main() {
   runApp(MyApp());
 }
 
-class User {
+class UserLeaderBoard {
   String name;
   int score;
 
-  User(this.name, this.score);
+  UserLeaderBoard(this.name, this.score);
 }
 
 class LeaderboardScreen extends StatelessWidget {
-  final List<User> users = [
-    User('User1', 100),
-    User('User2', 150),
-    User('User3', 120),
-    User('User4', 80),
-    User(
+  final List<UserLeaderBoard> users = [
+    UserLeaderBoard('User1', 100),
+    UserLeaderBoard('User2', 150),
+    UserLeaderBoard('User3', 120),
+    UserLeaderBoard('User4', 80),
+    UserLeaderBoard(
       'User5',
       200,
     )

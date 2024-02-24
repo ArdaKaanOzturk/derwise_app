@@ -28,6 +28,7 @@ WidgetsFlutterBinding.ensureInitialized();
   });
 */
 Future<void> main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
@@ -36,6 +37,12 @@ Future<void> main() async {
           appId: "1:1084471869645:web:5b17e2d61db9b00cf7a984",
           messagingSenderId: "1084471869645",
           projectId: "derw-bfced"));
+
+  await Firebase.initializeApp().then((value) {
+        Get.put(AuthenticationController());
+
+  });
+
 
   runApp(const MyApp());
 
@@ -56,7 +63,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => SplashScreen(
               // Here, you can decide whether to show the LoginPage or HomePage based on user authentication
-              child: LoginPage(),
+              child: HomePage(),
             ),
         '/login': (context) => LoginPage(),
         '/signUp': (context) => SignUpPage(),

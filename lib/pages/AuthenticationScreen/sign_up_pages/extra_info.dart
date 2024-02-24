@@ -1,16 +1,56 @@
+import 'dart:io';
+
+import 'package:derwise_app/controllers/authentication_controller.dart';
+import 'package:derwise_app/global/common/toast.dart';
+import 'package:derwise_app/pages/AuthenticationScreen/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import 'package:derwise_app/pages/home_page.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ExtraInfo extends StatefulWidget {
-  const ExtraInfo({super.key});
+class ExtraInfoPage extends StatefulWidget {
+  final String username;
+  final String email;
+  final String password;
+  const ExtraInfoPage({super.key, required this.username, required this.email, required this.password});
 
   @override
-  State<ExtraInfo> createState() => _ExtraInfoState();
+  State<ExtraInfoPage> createState() => _ExtraInfoPageState();
 }
 
-class _ExtraInfoState extends State<ExtraInfo> {
+class _ExtraInfoPageState extends State<ExtraInfoPage> {
+
+  late final String username;
+  late final String email;
+  late final String password;
+
+  final AuthenticationController _authController = Get.find();
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
+  final TextEditingController _universityController = TextEditingController();
+  final TextEditingController _departmentController = TextEditingController();
+  final TextEditingController _aboutController = TextEditingController();
+  final TextEditingController _favoriteSubjectsController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    username = widget.username;
+    email = widget.email;
+    password = widget.password;
+  }
+
+   @override
+  void dispose() {
+    _universityController.dispose();
+    _departmentController.dispose();
+    _aboutController.dispose();
+    _favoriteSubjectsController.dispose();
+    super.dispose();
+  }
+
   final departments = [
     "Architecture",
     "Computer Programming",
@@ -25,7 +65,7 @@ class _ExtraInfoState extends State<ExtraInfo> {
   ];
   String? value;
 
-  List<String> _selectedItems = [];
+  List<String> _selectedItems = []; // Updated to store selected subjects
   void _showMultiSelect() async {
     // a list of selectable items
     // these items can be hard-coded or dynamicly fetched from a database/API
@@ -65,13 +105,44 @@ class _ExtraInfoState extends State<ExtraInfo> {
     }
   }
 
+    bool _isCompletingSignUp = false;
+
+
+ _completeSignUp() async {
+  // Perform sign up completion logic here
+  setState(() {
+    _isCompletingSignUp = true;
+  });
+
+   String university = _universityController.text;
+    String department = _departmentController.text;
+    String about = _aboutController.text;
+
+    User? user = await _auth.signUpWithEmailAndPassword(email, password, username);
+  if (user != null) {
+    _authController.completeSignUp(university, department, _selectedItems, about);
+    setState(() {
+      _isCompletingSignUp = false;
+    });
+    Get.offAll(const HomePage());
+  } else {
+    setState(() {
+      _isCompletingSignUp = false;
+    });
+    showToast(message: "Some error happend");
+  }
+}
+
+  var authenticationController = AuthenticationController.authController;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
         elevation: 0,
-        title: Text("Additional Informations", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+        title: const Text("Additional Informations", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
         centerTitle: true,
         backgroundColor: DerwiseTheme.backgroundApp,
         automaticallyImplyLeading: false,
@@ -83,31 +154,87 @@ class _ExtraInfoState extends State<ExtraInfo> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
+
                 //choose profile image
-                GestureDetector(
-                  onTap: () {},
-                  child: CircleAvatar(
-                    radius: 70,
-                    backgroundImage: AssetImage(ImageConstant.emptyProfileImage),
-                    backgroundColor: Colors.black,
+                Column(
+                  children: [
+                     const Text("Profile Image:",
+                        style: TextStyle(color: DerwiseTheme.lightBlue, fontWeight: FontWeight.bold, fontSize: 18)),
+                    const SizedBox(height: 20),
+                    authenticationController.imageFile == null ?
+                    CircleAvatar(
+                        radius: 70,
+                        backgroundImage: AssetImage(ImageConstant.emptyProfileImage),
+                        backgroundColor: Colors.black,
+                      ): Container(
+                        width: 180,
+                        height: 180,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.grey,
+                          image: DecorationImage(
+                            fit: BoxFit.fitHeight,
+                            image: FileImage(
+                              File(
+                                authenticationController.imageFile!.path,
+                              )
+                            )
+                            )
+                        )
+                      ),
+                     Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(onPressed: () async{
+                        await authenticationController.pickImageFileFromGallery();
+
+                        setState(() {
+                          authenticationController.imageFile;
+                        });
+
+                      }, icon: const Icon(
+                        Icons.image_outlined,
+                        color: Colors.grey,
+                        size: 25
+                        )
+                       ),
+
+                       const SizedBox(width: 10,),
+
+                       IconButton(onPressed: () async{
+                        await authenticationController.captureImageFromPhoneCamera();
+
+                        setState(() {
+                          authenticationController.imageFile;
+                        });
+                        
+                      }, icon: const Icon(
+                        Icons.camera_alt_outlined,
+                        color: Colors.grey,
+                        size: 25
+                        )
+                       )
+                    ],
                   ),
+                  ],
                 ),
 
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
 
                 Column(
                   children: [
-                    Text("University:",
+                    const Text("University:",
                         style: TextStyle(color: DerwiseTheme.lightBlue, fontWeight: FontWeight.bold, fontSize: 18)),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     Form(
                         child: Column(
                       children: [
                         TextFormField(
-                          decoration: InputDecoration(
+                          controller: _universityController,
+                          decoration: const InputDecoration(
                             hintText: "Type Your University Here",
                           ),
                         )
@@ -116,16 +243,16 @@ class _ExtraInfoState extends State<ExtraInfo> {
                   ],
                 ),
 
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
 
                 Column(
                   children: [
-                    Text("Department:",
+                    const Text("Department:",
                         style: TextStyle(color: DerwiseTheme.colorBlue, fontWeight: FontWeight.bold, fontSize: 18)),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     Container(
                       width: 400,
-                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(color: Colors.white, width: 2),
@@ -134,7 +261,7 @@ class _ExtraInfoState extends State<ExtraInfo> {
                         child: DropdownButton<String>(
                           value: value,
                           iconSize: 35,
-                          icon: Icon(Icons.arrow_drop_down, color: Colors.white),
+                          icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                           isExpanded: true,
                           items: departments.map(buildMenuItem).toList(),
                           onChanged: (value) => setState(() {
@@ -145,13 +272,13 @@ class _ExtraInfoState extends State<ExtraInfo> {
                     ),
                   ],
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 
                 Column(
                   children: [
-                    Text("Favorite Subjects:",
+                    const Text("Favorite Subjects:",
                         style: TextStyle(color: DerwiseTheme.colorBlue, fontWeight: FontWeight.bold, fontSize: 18)),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 20),
                     ElevatedButton(onPressed: _showMultiSelect, child: const Text("Select subjects you are good at")
                     ),
                   ],
@@ -167,18 +294,19 @@ class _ExtraInfoState extends State<ExtraInfo> {
                   .toList(),
                 ),
 
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
 
                 Column(
                   children: [
-                    Text("About:",
+                    const Text("About:",
                         style: TextStyle(color: DerwiseTheme.lightBlue, fontWeight: FontWeight.bold, fontSize: 18)),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Form(
                         child: Column(
                       children: [
                         TextFormField(
-                          decoration: InputDecoration(
+                          controller: _aboutController,
+                          decoration: const InputDecoration(
                             hintText: "Type Something About Yourself",
                           ),
                         )
@@ -187,7 +315,28 @@ class _ExtraInfoState extends State<ExtraInfo> {
                   ],
                 ),
 
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
+
+                // Continue Button
+                GestureDetector(
+                  onTap: _completeSignUp,
+                  child: Container(
+                    width: double.infinity,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 50,)
 
               ],
             ),
@@ -199,7 +348,7 @@ class _ExtraInfoState extends State<ExtraInfo> {
 
   DropdownMenuItem<String> buildMenuItem(String departments) => DropdownMenuItem(
         value: departments,
-        child: Text(departments, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+        child: Text(departments, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
       );
 }
 

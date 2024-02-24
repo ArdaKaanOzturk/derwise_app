@@ -1,112 +1,103 @@
+import 'package:derwise_app/controllers/authentication_controller.dart';
 import 'package:derwise_app/theme.dart';
-import 'package:derwise_app/widget/hashtags_carousel.dart';
-import 'package:derwise_app/widget/info_carousel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:derwise_app/models/person.dart';
 
-class Profile {
-  final String name;
-  final String email;
-  final String imageUrl;
-
-  Profile({
-    required this.name,
-    required this.email,
-    required this.imageUrl,
-  });
-}
-
-final myProfile = Profile(
-  name: 'John Doe',
-  email: 'john.doe@example.com',
-  imageUrl: 'https://example.com/john-doe.jpg',
-);
-
+/*
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  final AuthenticationController _authController = Get.find();
+
+  ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final Profile userProfile = _authController.userProfile;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: DerwiseTheme.backgroundApp,
-        body: Expanded(
+        body: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-//Resim ve altındaki yazılar
-
-              Column(
-                children: [
-                  CircleAvatar(
-                    radius: 80,
-                    backgroundImage: NetworkImage(myProfile.imageUrl),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    myProfile.name,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+              // Profil bilgilerini gösteren widget'lar
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 80,
+                      backgroundImage: NetworkImage(userProfile.imageUrl),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    myProfile.email,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                ],
-              ),
-// Hashtagler
-
-              const Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 24, left: 40),
-                    child: Text(
-                      "Hashtags",
-                      textAlign: TextAlign.start,
-                      style: TextStyle(),
+                    const SizedBox(height: 20),
+                    Text(
+                      userProfile.name,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  HashtagsCarousel(
-                    children: [
-                      Icon(Icons.abc),
-                      Icon(Icons.ac_unit),
-                    ],
-                  ),
-                ],
+                    const SizedBox(height: 10),
+                    Text(
+                      userProfile.email,
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ],
+                ),
               ),
-              const InfoCarousel(
-                children: [
-                  Icon(Icons.abc),
-                  Icon(Icons.ac_unit),
-                ],
+
+              // Bağlantı bilgileri
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Connections',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: DerwiseTheme.lightBlue,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    // Bağlantılar listesi buraya eklenebilir
+                    // Örneğin: _buildConnectionsList(userProfile.connections),
+                    const SizedBox(height: 20),
+                    TextButton(
+                      onPressed: () {
+                        // Bağlantı ekleme sayfasına yönlendirme
+                        // Örneğin: Navigator.pushNamed(context, '/addConnection');
+                      },
+                      child: const Text('Add Connection'),
+                    ),
+                  ],
+                ),
               ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextButton(
-                      onPressed: () {},
-                      child: const Text("Edit Profile Settings")),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text("Change Account")),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                          ),
-                          onPressed: () {},
-                          child: const Text("Logout")),
-                    ],
-                  ),
-                ],
-              )
+
+              // Profil bilgileri
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'About Me',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: DerwiseTheme.lightBlue,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      userProfile.about,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -114,3 +105,4 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
+*/

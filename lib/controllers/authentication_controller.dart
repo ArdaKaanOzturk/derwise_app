@@ -15,6 +15,27 @@ class AuthenticationController extends GetxController{
 
   File? get profileImage => pickedFile.value;
   XFile? imageFile;
+  
+  get email => email;
+set email(dynamic email) {
+  email = email;
+}
+
+get name => name;
+set name(dynamic name) {
+  name = name;
+}
+
+get username => username;
+set username(dynamic username) {
+  username = username;
+}
+
+get password => password;
+set password(dynamic password) {
+  password = password;
+}
+  
 
   pickImageFileFromGallery() async{
     imageFile = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -47,26 +68,27 @@ class AuthenticationController extends GetxController{
     return downloadURLofImage;
   }
 
-createNewUserAccount(
-  File imageProfile, String name, String userName, String email, String password) async{
+  void signUp(String username, String email, String password) {
+  this.username = username;
+  this.email = email;
+  this.password = password;
+}
+
+void completeSignUp(
+  String university, String department, List<String> favoriteSubjects, String about) async{
     try {
-      // 1. authenticate user and create user with email and password
-      UserCredential credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email, 
-        password: password
+      // 3. save user info to firestore database
+      personModel.Person personInstance = personModel.Person(
+        imageProfile: profileImage != null ? await uploadImageToStorage(profileImage!) : '',
+        email: email,
+        name: name,
+        username: username,
+        password: password,
+        university: university,
+        department: department,
+        favoriteSubjects: favoriteSubjects,
+        about: about,
       );
-
-      // 2. upload image to storage
-     String urlOfDownloadedImage = await uploadImageToStorage(imageProfile);
-
-     // 3. save user info to firestore database
-    personModel.Person personInstance = personModel.Person(
-      imageProfile: urlOfDownloadedImage,
-      email: email,
-      name: name,
-      userName: userName,
-      password: password
-    );
 
     await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid).set(personInstance.toJson());
 

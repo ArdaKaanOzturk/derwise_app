@@ -1,37 +1,60 @@
+import 'dart:core';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Person{
-  //personal info
-  String? imageProfile;
+  // Personal info
   String? name;
-  String? userName;
+  String? username;
   String? email;
   String? password;
+  // Extra info
+    String? imageProfile;
+    String? university;
+    String? department;
+    List<String>? favoriteSubjects; 
+    String? about;
 
   Person({
-    this.imageProfile,
     this.name,
-    this.userName,
+    this.username,
     this.email,
     this.password,
+    this.imageProfile,
+    this.university,
+    this.department,
+    this.favoriteSubjects,
+    this.about,
   });
 
-  static Person fromdataSnapshot(DocumentSnapshot snapshot){
+  static Person fromDataSnapshot(DocumentSnapshot snapshot){
     var dataSnapshot = snapshot.data() as Map<String, dynamic>;
     return Person(
+      // Personal info
       name: dataSnapshot["name"],
-      imageProfile: dataSnapshot["imageProfile"],
-      userName: dataSnapshot["username"],
+      username: dataSnapshot["username"],
       email: dataSnapshot['email'],
       password: dataSnapshot["password"],
+      // Extra info
+      imageProfile: dataSnapshot["imageProfile"],
+      university: dataSnapshot["university"],
+      department: dataSnapshot["department"],
+      favoriteSubjects: dataSnapshot["favorites"].cast<String>(),
+      about: dataSnapshot["about"]
     );
   }
 
   Map<String, dynamic> toJson()=>{
-    "imageProfile": imageProfile,
+    // Personal info
     "name": name,
-    "username" : userName,
+    "username" : username,
     "email" : email,
-    "password" : password
+    "password" : password,
+    // Extra info
+    "imageProfile": imageProfile,
+    "university" : university,
+    "department" : department,
+    "favorites" : List.from(favoriteSubjects!),
+    "about" : about
   };
 }

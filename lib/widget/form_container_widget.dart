@@ -41,7 +41,7 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: new TextFormField(
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.black),
         controller: widget.controller,
         keyboardType: widget.inputType,
         key: widget.fieldKey,
@@ -50,10 +50,11 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
         validator: widget.validator,
         onFieldSubmitted: widget.onFieldSubmitted,
         decoration: new InputDecoration(
+          fillColor: Colors.white,
           border: InputBorder.none,
           filled: true,
           hintText: widget.hintText,
-          hintStyle: TextStyle(color: const Color.fromARGB(255, 197, 197, 197)),
+          hintStyle: const TextStyle(color: Colors.black),
           suffixIcon: new GestureDetector(
             onTap: () {
               setState(() {
@@ -65,7 +66,7 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
                     _obscureText ? Icons.visibility_off : Icons.visibility,
                     color: _obscureText == false ? Colors.blue : Colors.grey,
                   )
-                : Text(""),
+                : const Text(""),
           ),
         ),
       ),
