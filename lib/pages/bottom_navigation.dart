@@ -15,6 +15,8 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,51 +24,60 @@ class _BottomNavigationState extends State<BottomNavigation> {
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: GNav(
-            backgroundColor: DerwiseTheme.bottomBarPrimary,
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: DerwiseTheme.waterBlue,
-            gap: 8,
-            padding: const EdgeInsets.all(15),
-            tabs: [
-              GButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
-                  );
-                },
-                icon: Icons.home_filled,
-                text: 'Home',
-              ),
-              GButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SearchScreen()),
-                  );
-                },
-                icon: Icons.search_rounded,
-                text: ' Search',
-              ),
-              GButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ChatPage()),
-                  );
-                },
-                icon: Icons.chat_bubble,
-                text: ' Messages',
-              ),
-              GButton(
-                  onPressed: () {
-                    Get.to(OptionsPages());
-                  },
-                  icon: Icons.person_2,
-                  text: 'Profile'),
-            ]),
+          backgroundColor: DerwiseTheme.bottomBarPrimary,
+          color: Colors.white,
+          activeColor: Colors.white,
+          tabBackgroundColor: DerwiseTheme.waterBlue,
+          gap: 8,
+          padding: const EdgeInsets.all(15),
+          selectedIndex: _selectedIndex,
+          onTabChange: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          tabs: [
+            GButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+              icon: Icons.home_filled,
+              text: 'Home',
+            ),
+            GButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SearchScreen(),
+                  ),
+                );
+              },
+              icon: Icons.search_rounded,
+              text: ' Search',
+            ),
+            GButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatPage()),
+                );
+              },
+              icon: Icons.chat_bubble,
+              text: ' Messages',
+            ),
+            GButton(
+              onPressed: () {
+                Get.to(OptionsPages());
+              },
+              icon: Icons.person_2,
+              text: 'Profile',
+            ),
+          ],
+        ),
       ),
     );
   }
