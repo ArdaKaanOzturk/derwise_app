@@ -6,9 +6,9 @@ Are you having trouble understanding your lessons or completing your assignments
 
 ## 🎥 Demo Video Link
 
-
 ## 📲 How To Download
-Download the apk file for your mobile version
+Download the apk file for your mobile version [here](https://drive.google.com/file/d/1k5_ECqCVtxXMagsddRZyciCxAqKkTXKK/view?usp=sharing).
+
 
 ## 📸 App Photos
 
@@ -20,7 +20,7 @@ Download the apk file for your mobile version
 
 
 ## 👥 Contributors
-|[Arda Kaan Ozturk](https://github.com/ArdaKaanOzturk)| [Yakup YAVUZ](https://github.com/yakupyavuz1) 
-|---|---|---|---|
+|[Arda Kaan Ozturk](https://github.com/ArdaKaanOzturk)| [Yakup YAVUZ](https://github.com/yakupyavuz1) |
+
 
 |<img src="https://avatars.githubusercontent.com/u/123774817?v=4?v=4" style="width: 200px;">|<img src="https://avatars.githubusercontent.com/u/77230984?v=4" style="width: 200px;">|
