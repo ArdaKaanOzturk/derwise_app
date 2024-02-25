@@ -22,6 +22,6 @@ Download the apk file for your mobile version
 ## 👥 Contributors
 |[Arda Kaan Ozturk](https://github.com/ArdaKaanOzturk)| [Yakup YAVUZ](https://github.com/yakupyavuz1) 
 |---|---|---|---|
-|<img alt="ardakaanozturk" src="https://github.com/ArdaKaanOzturk/derwise_app/assets/images/23456.png" width="200px"/>| <img src="https://avatars.githubusercontent.com/u/123774817?v=4?v=4" width="200px"/> 
-|<img width="200px" alt="yakupyavuz1" src="https://github.com/ArdaKaanOzturk/derwise_app/assets/images/profile.png" width="200px"/>| 
+|<img alt="ardakaanozturk" src="" width="200px"/>| <img src="https://avatars.githubusercontent.com/u/123774817?v=4?v=4" width="200px"/> 
+|<img width="200px" alt="yakupyavuz1" src="" width="200px"/>| 
 | <img src="https://avatars.githubusercontent.com/u/77230984?v=4" width="200px"/> 
