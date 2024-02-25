@@ -16,13 +16,12 @@ Download the apk file for your mobile version
 <img src="/assets/images/2.png" alt="App photo"  style="width: 900px;">
 <img src="/assets/images/3.png" alt="App photo"  style="width: 900px;">
 <img src="/assets/images/4.png" alt="App photo"  style="width: 900px;">
-<img src="/assets/images/5.png" alt="App photo"  style="width: 900px;">
+
 
 
 ## 👥 Contributors
-|[Arda Kaan Öztürk](https://github.com/ArdaKaanOzturk)| [Yakup Yavuz](https://github.com/yakupyavuz1) 
+|[Arda Kaan Ozturk](https://github.com/ArdaKaanOzturk)| [Yakup YAVUZ](https://github.com/yakupyavuz1) 
 |---|---|---|---|
-<img alt="ardakaanozturk" src="https://github.com/ArdaKaanOzturk/derwise_app/assets/images/23456.png" width="200px"/>|
- <img src="https://avatars.githubusercontent.com/u/123774817?v=4?v=4" width="200px"/> 
-
-<img alt="yakupyavuz" src="https://github.com/ArdaKaanOzturk/derwise_app/assets/images/profile.png" width="200px"/>| <img src="https://avatars.githubusercontent.com/u/77230984?v=4" width="200px"/>| 
+|<img alt="ardakaanozturk" src="https://github.com/ArdaKaanOzturk/derwise_app/assets/images/23456.png" width="200px"/>| <img src="https://avatars.githubusercontent.com/u/123774817?v=4?v=4" width="200px"/> 
+|<img width="200px" alt="yakupyavuz1" src="https://github.com/ArdaKaanOzturk/derwise_app/assets/images/profile.png" width="200px"/>| 
+| <img src="https://avatars.githubusercontent.com/u/77230984?v=4" width="200px"/> 
