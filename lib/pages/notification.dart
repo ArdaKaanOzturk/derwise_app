@@ -2,6 +2,7 @@ import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NotificationsPage extends StatefulWidget {
   @override
@@ -22,14 +23,8 @@ class _NotificationsPageState extends State<NotificationsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Notifications',
-          style: TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
+        title: Text('Notifications',
+            style: GoogleFonts.roboto(fontSize: 25, color: Colors.white)),
         backgroundColor: DerwiseTheme.backgroundApp,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -65,14 +60,11 @@ class _NotificationsPageState extends State<NotificationsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'You have a new notification',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                  Text('You have a new notification',
+                      style: GoogleFonts.lato(
+                          fontSize: 16,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold)),
                   Text(
                     subtexts[index],
                     maxLines: 2,
@@ -82,13 +74,9 @@ class _NotificationsPageState extends State<NotificationsPage> {
                       color: Colors.white,
                     ),
                   ),
-                  Text(
-                    '12:34 PM',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                    ),
-                  ),
+                  Text('12:52 PM',
+                      style:
+                          GoogleFonts.lato(fontSize: 16, color: Colors.white)),
                 ],
               ),
             );

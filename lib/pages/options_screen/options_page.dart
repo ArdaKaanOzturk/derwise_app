@@ -3,6 +3,7 @@ import 'package:derwise_app/AccountScreen/edit_item.dart';
 import 'package:derwise_app/AccountScreen/setting_item.dart';
 import 'package:derwise_app/AccountScreen/setting_page.dart';
 import 'package:derwise_app/pages/notification.dart';
+import 'package:derwise_app/pages/options_screen/information.dart';
 import 'package:derwise_app/pages/options_screen/update_profile_screens.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
@@ -72,7 +73,7 @@ class _OptionsPagesState extends State<OptionsPages> {
                 child: ElevatedButton(
                   onPressed: () => Get.to(() => const UpdateProfileScreen()),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: DerwiseTheme.lightBlue,
+                      backgroundColor: DerwiseTheme.bottomBarSecondary,
                       side: BorderSide.none,
                       shape: const StadiumBorder()),
                   child: const Text(
@@ -100,7 +101,11 @@ class _OptionsPagesState extends State<OptionsPages> {
               ProfileMenuWidget(
                   title: "Information",
                   icon: LineAwesomeIcons.info,
-                  onPress: () {}),
+                  onPress: () {
+                    Get.to(
+                      informationScreen(),
+                    );
+                  }),
               ProfileMenuWidget(
                   title: " Logout",
                   icon: LineAwesomeIcons.alternate_sign_out,

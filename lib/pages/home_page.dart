@@ -1,10 +1,11 @@
 import 'package:derwise_app/pages/MenuScreens/derwisescape.dart';
-import 'package:derwise_app/pages/MenuScreens/derwisesocial.dart';
 import 'package:derwise_app/pages/MenuScreens/events.dart';
 import 'package:derwise_app/pages/bottom_navigation.dart';
+import 'package:derwise_app/pages/categories.dart';
 import 'package:derwise_app/pages/leader_board.dart';
 import 'package:derwise_app/pages/meetings.dart';
 import 'package:derwise_app/pages/notification.dart';
+import 'package:derwise_app/pages/recommend.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:flutter/material.dart';
@@ -50,9 +51,9 @@ class _HomePageState extends State<HomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.event),
-                title: const Text(
+                title: Text(
                   'Communities',
-                  style: TextStyle(fontSize: 20),
+                  style: GoogleFonts.lato(fontSize: 20),
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -61,20 +62,17 @@ class _HomePageState extends State<HomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.people_outlined),
-                title: const Text(
+                title: Text(
                   'derwise Social',
-                  style: TextStyle(fontSize: 20),
+                  style: GoogleFonts.lato(fontSize: 20),
                 ),
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const derwiseSocialScreen()));
-                },
+                onTap: () {},
               ),
               ListTile(
                 leading: const Icon(Icons.record_voice_over),
-                title: const Text(
+                title: Text(
                   'derwise Scape',
-                  style: TextStyle(fontSize: 20),
+                  style: GoogleFonts.lato(fontSize: 20),
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -112,7 +110,13 @@ class _HomePageState extends State<HomePage> {
                                 padding: const EdgeInsets.all(12),
                                 child: const Icon(Icons.square_outlined)),
                             const SizedBox(height: 8),
-                            const Text('Categories')
+                            Text(
+                              'Categories',
+                              style: GoogleFonts.lato(fontSize: 15),
+                            ),
+                            GestureDetector(onTap: () {
+                              Get.to(Categories());
+                            }),
                           ],
                         ),
                         GestureDetector(
@@ -136,7 +140,10 @@ class _HomePageState extends State<HomePage> {
                                   child:
                                       const Icon(Icons.leaderboard_outlined)),
                               const SizedBox(height: 8),
-                              const Text('Standings'),
+                              Text(
+                                'Standings',
+                                style: GoogleFonts.lato(fontSize: 15),
+                              ),
                             ],
                           ),
                         ),
@@ -161,7 +168,10 @@ class _HomePageState extends State<HomePage> {
                                   child:
                                       const Icon(Icons.calendar_month_sharp)),
                               const SizedBox(height: 8),
-                              const Text('Calendar'),
+                              Text(
+                                'Calendar',
+                                style: GoogleFonts.lato(fontSize: 15),
+                              ),
                             ],
                           ),
                         ),
@@ -185,7 +195,10 @@ class _HomePageState extends State<HomePage> {
                                   padding: const EdgeInsets.all(12),
                                   child: const Icon(Icons.videocam)),
                               const SizedBox(height: 8),
-                              const Text('Meetings')
+                              Text(
+                                'Meetings',
+                                style: GoogleFonts.lato(fontSize: 15),
+                              )
                             ],
                           ),
                         ),
@@ -206,14 +219,11 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Row(
                             children: [
-                              const Expanded(
+                              Expanded(
                                 child: Text(
                                   "Are you having trouble understanding\n the subject? Find the best student\n who can explain the subject you\n don't understand.",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.white,
-                                  ),
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 15, color: Colors.white),
                                 ),
                               ),
                               Image.asset(
@@ -233,19 +243,36 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 20, vertical: 10),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Find Tutor',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                              ),
+                              style: GoogleFonts.roboto(
+                                  fontSize: 16, color: Colors.black),
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    "Top Tutors",
+                    style: GoogleFonts.roboto(fontSize: 20),
+                  ),
+                  SizedBox(height: 15),
+                  Recommended(),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    "Recommended for you",
+                    style: GoogleFonts.roboto(fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Recommended(),
                 ],
               ),
             ),
