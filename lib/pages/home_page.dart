@@ -8,6 +8,7 @@ import 'package:derwise_app/pages/notification.dart';
 import 'package:derwise_app/pages/recommend.dart';
 import 'package:derwise_app/pages/recommendedCourses.dart';
 import 'package:derwise_app/pages/toptutors.dart';
+import 'package:derwise_app/pages/videochat.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:flutter/material.dart';
@@ -159,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MeetingsPage()),
+                                  builder: (context) => VideoChatPage()),
                             );
                           },
                           child: Column(

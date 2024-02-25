@@ -7,7 +7,7 @@ Are you having trouble understanding your lessons or completing your assignments
 ## 🎥 Demo Video Link
 
 ## 📲 How To Download
-Download the apk file for your mobile version [here](https://drive.google.com/file/d/1k5_ECqCVtxXMagsddRZyciCxAqKkTXKK/view?usp=sharing).
+Download the apk file for your mobile version [here](https://drive.google.com/file/d/1EL2u3_kdxUgkkjuDlQSS5qK-MHFRcTPX/view?usp=drive_link).
 
 
 ## 📸 App Photos
