@@ -14,14 +14,17 @@ class ExtraInfoPage extends StatefulWidget {
   final String username;
   final String email;
   final String password;
-  const ExtraInfoPage({super.key, required this.username, required this.email, required this.password});
+  const ExtraInfoPage(
+      {super.key,
+      required this.username,
+      required this.email,
+      required this.password});
 
   @override
   State<ExtraInfoPage> createState() => _ExtraInfoPageState();
 }
 
 class _ExtraInfoPageState extends State<ExtraInfoPage> {
-
   late final String username;
   late final String email;
   late final String password;
@@ -32,7 +35,8 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
   final TextEditingController _universityController = TextEditingController();
   final TextEditingController _departmentController = TextEditingController();
   final TextEditingController _aboutController = TextEditingController();
-  final TextEditingController _favoriteSubjectsController = TextEditingController();
+  final TextEditingController _favoriteSubjectsController =
+      TextEditingController();
 
   @override
   void initState() {
@@ -42,7 +46,7 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
     password = widget.password;
   }
 
-   @override
+  @override
   void dispose() {
     _universityController.dispose();
     _departmentController.dispose();
@@ -105,36 +109,36 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
     }
   }
 
-    bool _isCompletingSignUp = false;
+  bool _isCompletingSignUp = false;
 
+  _completeSignUp() async {
+    // Perform sign up completion logic here
+    setState(() {
+      _isCompletingSignUp = true;
+    });
 
- _completeSignUp() async {
-  // Perform sign up completion logic here
-  setState(() {
-    _isCompletingSignUp = true;
-  });
-
-   String university = _universityController.text;
+    String university = _universityController.text;
     String department = _departmentController.text;
     String about = _aboutController.text;
 
-    User? user = await _auth.signUpWithEmailAndPassword(email, password, username);
-  if (user != null) {
-    _authController.completeSignUp(university, department, _selectedItems, about);
-    setState(() {
-      _isCompletingSignUp = false;
-    });
-    Get.offAll(const HomePage());
-  } else {
-    setState(() {
-      _isCompletingSignUp = false;
-    });
-    showToast(message: "Some error happend");
+    User? user =
+        await _auth.signUpWithEmailAndPassword(email, password, username);
+    if (user != null) {
+      _authController.completeSignUp(
+          university, department, _selectedItems, about);
+      setState(() {
+        _isCompletingSignUp = false;
+      });
+      Get.offAll(const HomePage());
+    } else {
+      setState(() {
+        _isCompletingSignUp = false;
+      });
+      showToast(message: "Some error happend");
+    }
   }
-}
 
   var authenticationController = AuthenticationController.authController;
-
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +146,8 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
       backgroundColor: DerwiseTheme.backgroundApp,
       appBar: AppBar(
         elevation: 0,
-        title: const Text("Additional Informations", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+        title: const Text("Additional Informations",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
         centerTitle: true,
         backgroundColor: DerwiseTheme.backgroundApp,
         automaticallyImplyLeading: false,
@@ -161,64 +166,60 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
                 //choose profile image
                 Column(
                   children: [
-                     const Text("Profile Image:",
-                        style: TextStyle(color: DerwiseTheme.lightBlue, fontWeight: FontWeight.bold, fontSize: 18)),
+                    const Text("Profile Image:",
+                        style: TextStyle(
+                            color: DerwiseTheme.lightBlue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18)),
                     const SizedBox(height: 20),
-                    authenticationController.imageFile == null ?
-                    CircleAvatar(
-                        radius: 70,
-                        backgroundImage: AssetImage(ImageConstant.emptyProfileImage),
-                        backgroundColor: Colors.black,
-                      ): Container(
-                        width: 180,
-                        height: 180,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.grey,
-                          image: DecorationImage(
-                            fit: BoxFit.fitHeight,
-                            image: FileImage(
-                              File(
-                                authenticationController.imageFile!.path,
-                              )
-                            )
-                            )
-                        )
-                      ),
-                     Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(onPressed: () async{
-                        await authenticationController.pickImageFileFromGallery();
+                    authenticationController.imageFile == null
+                        ? CircleAvatar(
+                            radius: 70,
+                            backgroundImage:
+                                AssetImage(ImageConstant.emptyProfileImage),
+                            backgroundColor: Colors.black,
+                          )
+                        : Container(
+                            width: 180,
+                            height: 180,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.grey,
+                                image: DecorationImage(
+                                    fit: BoxFit.fitHeight,
+                                    image: FileImage(File(
+                                      authenticationController.imageFile!.path,
+                                    ))))),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            onPressed: () async {
+                              await authenticationController
+                                  .pickImageFileFromGallery();
 
-                        setState(() {
-                          authenticationController.imageFile;
-                        });
+                              setState(() {
+                                authenticationController.imageFile;
+                              });
+                            },
+                            icon: const Icon(Icons.image_outlined,
+                                color: Colors.grey, size: 25)),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        IconButton(
+                            onPressed: () async {
+                              await authenticationController
+                                  .captureImageFromPhoneCamera();
 
-                      }, icon: const Icon(
-                        Icons.image_outlined,
-                        color: Colors.grey,
-                        size: 25
-                        )
-                       ),
-
-                       const SizedBox(width: 10,),
-
-                       IconButton(onPressed: () async{
-                        await authenticationController.captureImageFromPhoneCamera();
-
-                        setState(() {
-                          authenticationController.imageFile;
-                        });
-                        
-                      }, icon: const Icon(
-                        Icons.camera_alt_outlined,
-                        color: Colors.grey,
-                        size: 25
-                        )
-                       )
-                    ],
-                  ),
+                              setState(() {
+                                authenticationController.imageFile;
+                              });
+                            },
+                            icon: const Icon(Icons.camera_alt_outlined,
+                                color: Colors.grey, size: 25))
+                      ],
+                    ),
                   ],
                 ),
 
@@ -227,7 +228,10 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
                 Column(
                   children: [
                     const Text("University:",
-                        style: TextStyle(color: DerwiseTheme.lightBlue, fontWeight: FontWeight.bold, fontSize: 18)),
+                        style: TextStyle(
+                            color: DerwiseTheme.lightBlue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18)),
                     const SizedBox(height: 20),
                     Form(
                         child: Column(
@@ -248,11 +252,15 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
                 Column(
                   children: [
                     const Text("Department:",
-                        style: TextStyle(color: DerwiseTheme.colorBlue, fontWeight: FontWeight.bold, fontSize: 18)),
+                        style: TextStyle(
+                            color: DerwiseTheme.colorBlue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18)),
                     const SizedBox(height: 20),
                     Container(
                       width: 400,
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 4),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(color: Colors.white, width: 2),
@@ -261,7 +269,8 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
                         child: DropdownButton<String>(
                           value: value,
                           iconSize: 35,
-                          icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
+                          icon: const Icon(Icons.arrow_drop_down,
+                              color: Colors.white),
                           isExpanded: true,
                           items: departments.map(buildMenuItem).toList(),
                           onChanged: (value) => setState(() {
@@ -273,14 +282,18 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
                   ],
                 ),
                 const SizedBox(height: 50),
-                
+
                 Column(
                   children: [
                     const Text("Favorite Subjects:",
-                        style: TextStyle(color: DerwiseTheme.colorBlue, fontWeight: FontWeight.bold, fontSize: 18)),
-                        const SizedBox(height: 20),
-                    ElevatedButton(onPressed: _showMultiSelect, child: const Text("Select subjects you are good at")
-                    ),
+                        style: TextStyle(
+                            color: DerwiseTheme.colorBlue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18)),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                        onPressed: _showMultiSelect,
+                        child: const Text("Select subjects you are good at")),
                   ],
                 ),
 
@@ -289,9 +302,11 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
                 ),
                 // display selected items
                 Wrap(
-                  children: _selectedItems.map((e) => Chip(label: Text(e),
-                  ))
-                  .toList(),
+                  children: _selectedItems
+                      .map((e) => Chip(
+                            label: Text(e),
+                          ))
+                      .toList(),
                 ),
 
                 const SizedBox(height: 50),
@@ -299,7 +314,10 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
                 Column(
                   children: [
                     const Text("About:",
-                        style: TextStyle(color: DerwiseTheme.lightBlue, fontWeight: FontWeight.bold, fontSize: 18)),
+                        style: TextStyle(
+                            color: DerwiseTheme.lightBlue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18)),
                     const SizedBox(height: 10),
                     Form(
                         child: Column(
@@ -330,14 +348,16 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
                     child: const Center(
                       child: Text(
                         "Sign Up",
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                 ),
 
-                const SizedBox(height: 50,)
-
+                const SizedBox(
+                  height: 50,
+                )
               ],
             ),
           ),
@@ -346,9 +366,11 @@ class _ExtraInfoPageState extends State<ExtraInfoPage> {
     );
   }
 
-  DropdownMenuItem<String> buildMenuItem(String departments) => DropdownMenuItem(
+  DropdownMenuItem<String> buildMenuItem(String departments) =>
+      DropdownMenuItem(
         value: departments,
-        child: Text(departments, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+        child: Text(departments,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
       );
 }
 
@@ -365,23 +387,23 @@ class _MultiSelectState extends State<MultiSelect> {
   final List<String> _selectedItems = [];
 
   // This function is triggeered when a chechbox is checked  or unchecked
-  void _itemChange(String itemValue, bool isSelected){
+  void _itemChange(String itemValue, bool isSelected) {
     setState(() {
-      if(isSelected){
+      if (isSelected) {
         _selectedItems.add(itemValue);
-      }else{
+      } else {
         _selectedItems.remove(itemValue);
       }
     });
   }
 
   // this function is called when the cancel button is pressed
-  void _cancel(){
+  void _cancel() {
     Navigator.pop(context);
   }
 
   // function is called when the submit button is tapped
-  void _submit(){
+  void _submit() {
     Navigator.pop(context, _selectedItems);
   }
 
@@ -391,20 +413,21 @@ class _MultiSelectState extends State<MultiSelect> {
       title: const Text("Select Subjects"),
       content: SingleChildScrollView(
         child: ListBody(
-          children: widget.items.map((item) => CheckboxListTile(value: _selectedItems.contains(item),
-          title: Text(item),
-          controlAffinity: ListTileControlAffinity.leading,
-           onChanged: (isChecked)=>_itemChange(item, isChecked!),
-           ))
-           .toList(),
+          children: widget.items
+              .map((item) => CheckboxListTile(
+                    value: _selectedItems.contains(item),
+                    title: Text(item),
+                    controlAffinity: ListTileControlAffinity.leading,
+                    onChanged: (isChecked) => _itemChange(item, isChecked!),
+                  ))
+              .toList(),
         ),
       ),
       actions: [
-        TextButton(onPressed: _cancel, child: const Text("Cancel")
-        ),
+        TextButton(onPressed: _cancel, child: const Text("Cancel")),
         ElevatedButton(
           onPressed: _submit,
-          child: const  Text("Submit"),
+          child: const Text("Submit"),
         ),
       ],
     );

@@ -11,7 +11,6 @@ import 'package:derwise_app/util/images_path.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'calendar.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,12 +28,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: DerwiseTheme.backgroundApp,
         elevation: 0,
-        title: Text(
-          "derwise",
-          style: GoogleFonts.pacifico(
-              fontSize: 25, color: DerwiseTheme.bottomBarSecondary),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 70, top: 12),
+          child: Image.asset(ImageConstant.logoAppBarImage),
         ),
-        centerTitle: true,
         actions: const [NotificationIcon()],
       ),
       drawer: Drawer(
@@ -51,9 +48,9 @@ class _HomePageState extends State<HomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.event),
-                title: Text(
+                title: const Text(
                   'Communities',
-                  style: GoogleFonts.lato(fontSize: 20),
+                  style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -62,17 +59,17 @@ class _HomePageState extends State<HomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.people_outlined),
-                title: Text(
+                title: const Text(
                   'derwise Social',
-                  style: GoogleFonts.lato(fontSize: 20),
+                  style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {},
               ),
               ListTile(
                 leading: const Icon(Icons.record_voice_over),
-                title: Text(
+                title: const Text(
                   'derwise Scape',
-                  style: GoogleFonts.lato(fontSize: 20),
+                  style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -110,42 +107,23 @@ class _HomePageState extends State<HomePage> {
                                 padding: const EdgeInsets.all(12),
                                 child: const Icon(Icons.square_outlined)),
                             const SizedBox(height: 8),
-                            Text(
-                              'Categories',
-                              style: GoogleFonts.lato(fontSize: 15),
-                            ),
-                            GestureDetector(onTap: () {
-                              Get.to(Categories());
-                            }),
+                            const Text('Categories')
                           ],
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LeaderboardScreen()),
-                            );
-                          },
-                          child: Column(
-                            children: [
-                              Container(
-                                  width: 60,
-                                  height: 60,
-                                  decoration: BoxDecoration(
-                                    color: DerwiseTheme.waterBlue,
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  padding: const EdgeInsets.all(12),
-                                  child:
-                                      const Icon(Icons.leaderboard_outlined)),
-                              const SizedBox(height: 8),
-                              Text(
-                                'Standings',
-                                style: GoogleFonts.lato(fontSize: 15),
-                              ),
-                            ],
-                          ),
+                        Column(
+                          children: [
+                            Container(
+                                width: 60,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  color: DerwiseTheme.waterBlue,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                padding: const EdgeInsets.all(12),
+                                child: const Icon(Icons.leaderboard_outlined)),
+                            const SizedBox(height: 8),
+                            const Text('Standings')
+                          ],
                         ),
                         GestureDetector(
                           onTap: () {
@@ -168,10 +146,7 @@ class _HomePageState extends State<HomePage> {
                                   child:
                                       const Icon(Icons.calendar_month_sharp)),
                               const SizedBox(height: 8),
-                              Text(
-                                'Calendar',
-                                style: GoogleFonts.lato(fontSize: 15),
-                              ),
+                              const Text('Calendar'),
                             ],
                           ),
                         ),
@@ -195,10 +170,7 @@ class _HomePageState extends State<HomePage> {
                                   padding: const EdgeInsets.all(12),
                                   child: const Icon(Icons.videocam)),
                               const SizedBox(height: 8),
-                              Text(
-                                'Meetings',
-                                style: GoogleFonts.lato(fontSize: 15),
-                              )
+                              const Text('Meetings')
                             ],
                           ),
                         ),
@@ -219,11 +191,14 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Row(
                             children: [
-                              Expanded(
+                              const Expanded(
                                 child: Text(
                                   "Are you having trouble understanding\n the subject? Find the best student\n who can explain the subject you\n don't understand.",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 15, color: Colors.white),
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                               Image.asset(
@@ -243,16 +218,39 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 20, vertical: 10),
                             ),
-                            child: Text(
+                            child: const Text(
                               'Find Tutor',
-                              style: GoogleFonts.roboto(
-                                  fontSize: 16, color: Colors.black),
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    "Top Tutors",
+                    style: GoogleFonts.roboto(fontSize: 20),
+                  ),
+                  SizedBox(height: 15),
+                  Recommended(),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    "Recommended for you",
+                    style: GoogleFonts.roboto(fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Recommended(),
                 ],
               ),
             ),
@@ -277,5 +275,4 @@ class NotificationIcon extends StatelessWidget {
     );
   }
 }
-
 //
