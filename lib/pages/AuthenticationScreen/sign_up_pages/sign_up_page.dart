@@ -155,6 +155,28 @@ class _SignUpPageState extends State<SignUpPage> {
     String email = _emailController.text;
     String password = _passwordController.text;
 
+    User? user = await _auth.signUpWithEmailAndPassword(email, password, username);
+
+    setState(() {
+      _isSigningUp = false;
+    });
+    if (user != null) {
+      showToast(message: "User is successfully created");
+      Navigator.pushNamed(context, "/home");
+    } else {
+      showToast(message: "Some error happend");
+    }
+  }
+
+  /* void _signUp() async {
+    setState(() {
+      _isSigningUp = true;
+    });
+
+    String username = _usernameController.text;
+    String email = _emailController.text;
+    String password = _passwordController.text;
+
     Navigator.push(
     context,
     MaterialPageRoute(
@@ -179,5 +201,5 @@ class _SignUpPageState extends State<SignUpPage> {
     } else {
       showToast(message: "Some error happend");
     }
-  }
+  } */
 }
