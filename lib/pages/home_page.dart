@@ -6,6 +6,8 @@ import 'package:derwise_app/pages/leader_board.dart';
 import 'package:derwise_app/pages/meetings.dart';
 import 'package:derwise_app/pages/notification.dart';
 import 'package:derwise_app/pages/recommend.dart';
+import 'package:derwise_app/pages/recommendedCourses.dart';
+import 'package:derwise_app/pages/toptutors.dart';
 import 'package:derwise_app/theme.dart';
 import 'package:derwise_app/util/images_path.dart';
 import 'package:flutter/material.dart';
@@ -28,10 +30,12 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: DerwiseTheme.backgroundApp,
         elevation: 0,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 70, top: 12),
-          child: Image.asset(ImageConstant.logoAppBarImage),
+        title: Text(
+          "derwise",
+          style: GoogleFonts.pacifico(
+              fontSize: 25, color: DerwiseTheme.bottomBarSecondary),
         ),
+        centerTitle: true,
         actions: const [NotificationIcon()],
       ),
       drawer: Drawer(
@@ -235,11 +239,19 @@ class _HomePageState extends State<HomePage> {
                     height: 30,
                   ),
                   Text(
+                    "Recommended Courses",
+                    style: GoogleFonts.roboto(fontSize: 20),
+                  ),
+                  recommenCourses(),
+                  SizedBox(height: 15),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
                     "Top Tutors",
                     style: GoogleFonts.roboto(fontSize: 20),
                   ),
-                  SizedBox(height: 15),
-                  Recommended(),
+                  toptutors(),
                   SizedBox(
                     height: 15,
                   ),

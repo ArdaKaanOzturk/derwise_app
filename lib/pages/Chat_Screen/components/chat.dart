@@ -35,7 +35,8 @@ class _ChatUsersListState extends State<ChatUsersList> {
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
-                    backgroundImage: AssetImage(widget.image),
+                    backgroundImage:
+                        AssetImage("assets/images/userImage3.jpeg"),
                     maxRadius: 30,
                   ),
                   SizedBox(

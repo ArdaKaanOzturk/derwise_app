@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Recommended extends StatelessWidget {
-  const Recommended({super.key});
+class recommenCourses extends StatefulWidget {
+  const recommenCourses({super.key});
 
+  @override
+  State<recommenCourses> createState() => _recommenCoursesState();
+}
+
+class _recommenCoursesState extends State<recommenCourses> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +19,7 @@ class Recommended extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Row(
               children: [
-                RecomCard(),
+                Recomcourse(),
                 SizedBox(
                   width: 12,
                 ),
@@ -25,8 +30,8 @@ class Recommended extends StatelessWidget {
   }
 }
 
-class RecomCard extends StatelessWidget {
-  const RecomCard({super.key});
+class Recomcourse extends StatelessWidget {
+  const Recomcourse({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,19 +41,19 @@ class RecomCard extends StatelessWidget {
         Image(
           width: 130,
           height: 130,
-          image: AssetImage("assets/images/userImage1.jpeg"),
+          image: AssetImage("assets/images/software.png"),
         ),
         SizedBox(
           height: 8,
         ),
         Text(
-          "John Peterson",
+          "Software",
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
-          "Engineering, Java",
+          "Algorithms,Web Applications, ",
           style: TextStyle(color: Colors.grey, fontSize: 10),
         ),
       ],

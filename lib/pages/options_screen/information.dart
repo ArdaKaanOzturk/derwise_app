@@ -23,9 +23,12 @@ class _informationScreenState extends State<informationScreen> {
         ),
       ),
       body: Center(
-        child: Text(
-          "The father of ideas Yakup Yavuz and Arda kaan Öztürk",
-          style: TextStyle(fontSize: 15, color: Colors.white),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 5, right: 5),
+          child: Text(
+            "The founders of this app are Yakup Yavuz & Arda Kaan Ozturk",
+            style: TextStyle(fontSize: 13, color: Colors.white),
+          ),
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Recommended extends StatelessWidget {
-  const Recommended({super.key});
+class toptutors extends StatelessWidget {
+  const toptutors({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class Recommended extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Row(
               children: [
-                RecomCard(),
+                toptutorsview(),
                 SizedBox(
                   width: 12,
                 ),
@@ -25,8 +25,8 @@ class Recommended extends StatelessWidget {
   }
 }
 
-class RecomCard extends StatelessWidget {
-  const RecomCard({super.key});
+class toptutorsview extends StatelessWidget {
+  const toptutorsview({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,19 +36,19 @@ class RecomCard extends StatelessWidget {
         Image(
           width: 130,
           height: 130,
-          image: AssetImage("assets/images/userImage1.jpeg"),
+          image: AssetImage("assets/images/userImage7.jpeg"),
         ),
         SizedBox(
           height: 8,
         ),
         Text(
-          "John Peterson",
+          "Erica Aldenberg",
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
-          "Engineering, Java",
+          "Psychology ",
           style: TextStyle(color: Colors.grey, fontSize: 10),
         ),
       ],

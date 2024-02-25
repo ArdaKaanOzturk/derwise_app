@@ -28,7 +28,7 @@ class ChatDetailPageAppBar extends StatelessWidget
                 width: 2,
               ),
               CircleAvatar(
-                backgroundImage: AssetImage("images/userImage1.jpeg"),
+                backgroundImage: AssetImage("assets/images/userImage3.jpeg"),
                 maxRadius: 20,
               ),
               SizedBox(
