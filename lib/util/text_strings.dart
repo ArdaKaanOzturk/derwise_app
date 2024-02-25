@@ -4,14 +4,13 @@ const String tProfile = "Profile";
 const String tEditProfile = "Edit Profile";
 const String tLogOut = "Logout";
 const String tProfileHeading = "Yakup";
-const String tProfileSubHeading = "yakupyavuz002@gmail.com";
+const String tProfileSubHeading = "----";
 
 // menu
 
 const String tMenu5 = tLogOut;
 const String tMenu1 = "Settings";
 const String tMenu4 = "Information";
-const String tMenu2 = "Billing Details";
 const String tMenu3 = "User Management";
 
 // update profile Screen - Text

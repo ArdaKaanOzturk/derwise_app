@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:derwise_app/theme.dart';
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
 
 class UserLeaderBoard {
   String name;
@@ -29,54 +24,52 @@ class LeaderboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     users.sort((a, b) => b.score.compareTo(a.score));
 
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: DerwiseTheme.backgroundApp,
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            color: Colors.white,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          backgroundColor: DerwiseTheme.backgroundApp,
-          title: Text(
-            'Standings',
-            style: TextStyle(color: Colors.white, fontSize: 24),
-          ),
-          centerTitle: true,
+    return Scaffold(
+      backgroundColor: DerwiseTheme.backgroundApp,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(height: 16),
-              Card(
-                elevation: 4,
-                child: Column(
-                  children: List.generate(users.length, (index) {
-                    final user = users[index];
-                    return ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Colors.blue,
-                        child: Text(
-                          (index + 1).toString(),
-                          style: TextStyle(color: Colors.white),
-                        ),
+        backgroundColor: DerwiseTheme.backgroundApp,
+        title: Text(
+          'Standings',
+          style: TextStyle(color: Colors.white, fontSize: 24),
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(height: 16),
+            Card(
+              elevation: 4,
+              child: Column(
+                children: List.generate(users.length, (index) {
+                  final user = users[index];
+                  return ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.blue,
+                      child: Text(
+                        (index + 1).toString(),
+                        style: TextStyle(color: Colors.white),
                       ),
-                      title: Text(user.name),
-                      trailing: Text(
-                        '${user.score} puan',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    );
-                  }),
-                ),
+                    ),
+                    title: Text(user.name),
+                    trailing: Text(
+                      '${user.score} puan',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  );
+                }),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

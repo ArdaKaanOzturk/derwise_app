@@ -1,5 +1,6 @@
 import 'package:derwise_app/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MeetingsPage extends StatefulWidget {
   @override
@@ -39,7 +40,9 @@ class _MeetingsPageState extends State<MeetingsPage>
         controller: _tabController,
         children: const [
           // Tab contents
-          Center(child: Text('History Content')),
+          Center(
+            child: Text('History Content'),
+          ),
           Center(child: Text('Connections Content'))
         ],
       ),
