@@ -22,6 +22,5 @@ Download the apk file for your mobile version
 ## 👥 Contributors
 |[Arda Kaan Ozturk](https://github.com/ArdaKaanOzturk)| [Yakup YAVUZ](https://github.com/yakupyavuz1) 
 |---|---|---|---|
-|<img alt="ardakaanozturk" src="" width="200px"/>| <img src="https://avatars.githubusercontent.com/u/123774817?v=4?v=4" width="200px"/> 
-|<img width="200px" alt="yakupyavuz1" src="" width="200px"/>| 
-| <img src="https://avatars.githubusercontent.com/u/77230984?v=4" width="200px"/> 
+
+|<img src="https://avatars.githubusercontent.com/u/123774817?v=4?v=4" style="width: 200px;">|<img src="https://avatars.githubusercontent.com/u/77230984?v=4" style="width: 200px;">|
